@@ -1,4 +1,7 @@
 h1 {
   font-size: 2em; }
 
+.chart rect {
+  fill: steelblue;
+}
 /*# sourceMappingURL=style.css.map */
