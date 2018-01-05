@@ -26,15 +26,20 @@ window.onload = function() {
             .attr('width', barWidth - 1)
             .attr('height', (d) => y(d[1]) + 'px')
             .attr('y', (d) => height - y(d[1]))
-            .on('mouseover', function () { d3.select(this).style('fill', 'red')})
-            .on('mouseout', function () { d3.select(this).style('fill', 'steelblue')})
-            .on('click', function (d) {
+            .on('mouseover', function (d) { 
+                d3.select(this).style('fill', 'red')
                 div.transition()
-                    .duration(200)
+                    .duration(100)
                     .style('opacity', 1)
                 div.html('$' + d[1] + ' billion')
-                    .style('top', d3.event.pageY)
+                    .style('top', d3.event.pageY - 40)
                     .style('left', d3.event.pageX)
-            } )
+            })
+            .on('mouseout', function () {
+                 d3.select(this).style('fill', 'steelblue')
+                div.transition()
+                    .duration(100)
+                    .style('opacity', 0)
+                })
     })
 }
