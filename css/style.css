@@ -4,4 +4,24 @@ h1 {
 .chart rect {
   fill: steelblue;
 }
+
+.chart chart {
+  fill: black;
+}
+
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+.tooltip {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  left: 500px;
+  top: 500px;
+  color: black;
+  background-color:grey;
+}
+
 /*# sourceMappingURL=style.css.map */

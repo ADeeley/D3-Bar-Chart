@@ -12,6 +12,11 @@ window.onload = function() {
             .attr('width', barWidth * data.length)
             .attr('height', height);
 
+        let div = d3.select('body').append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+
         let bar = chart.selectAll('g')
             .data(data)
         .enter().append('g')
@@ -21,5 +26,15 @@ window.onload = function() {
             .attr('width', barWidth - 1)
             .attr('height', (d) => y(d[1]) + 'px')
             .attr('y', (d) => height - y(d[1]))
+            .on('mouseover', function () { d3.select(this).style('fill', 'red')})
+            .on('mouseout', function () { d3.select(this).style('fill', 'steelblue')})
+            .on('click', function (d) {
+                div.transition()
+                    .duration(200)
+                    .style('opacity', 1)
+                div.html(d[1])
+                    .style('top', d3.event.pageY)
+                    .style('left', d3.event.pageX)
+            } )
     })
 }
