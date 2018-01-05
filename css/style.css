@@ -16,12 +16,15 @@ h1 {
 
 .tooltip {
   position: absolute;
-  width: 60px;
-  height: 40px;
   left: 500px;
   top: 500px;
-  color: black;
-  background-color:grey;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: darkblue;
+  text-align: center;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
 }
 
 /*# sourceMappingURL=style.css.map */

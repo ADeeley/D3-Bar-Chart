@@ -32,7 +32,7 @@ window.onload = function() {
                 div.transition()
                     .duration(200)
                     .style('opacity', 1)
-                div.html(d[1])
+                div.html('$' + d[1] + ' billion')
                     .style('top', d3.event.pageY)
                     .style('left', d3.event.pageX)
             } )
