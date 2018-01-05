@@ -5,8 +5,11 @@ h1 {
   fill: steelblue;
 }
 
-.chart chart {
-  fill: black;
+.chart  {
+  padding: 10px;
+  border-radius: 3px;
+  border: 2px solid grey;
+  box-shadow: 5px 5px lightgrey;
 }
 
 .container {
