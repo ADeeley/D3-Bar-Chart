@@ -57,7 +57,7 @@ window.onload = function() {
 
        chart.append('text')
             .attr('x', width / 2)
-            .attr('y', height)
+            .attr('y', outerHeight - 10)
             .style('text-anchor', 'middle')
             .text('Year');
 
