@@ -1,7 +1,11 @@
 window.onload = function() {
     d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json', function(stats) {
+        let margin = {top: 20, right: 20,
+                      bottom: 50, left: 70};
+
         let data = stats.data,
             height = 600,
+            width = data.length * 3, 
             barWidth = 3;
 
         let y = d3.scaleLinear()
@@ -41,5 +45,25 @@ window.onload = function() {
                     .duration(100)
                     .style('opacity', 0)
                 })
+
+       chart.append('text')
+            .attr('x', width / 2)
+            .attr('y', margin.top)
+            .style('text-anchor', 'middle')
+            .text('USA Gross Domestic Product');
+
+       chart.append('text')
+            .attr('x', width / 2)
+            .attr('y', height)
+            .style('text-anchor', 'middle')
+            .text('Year');
+
+       chart.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', 0 - (height / 2))
+            .attr('y', 0 )
+            .attr('dy', '1em')
+            .style('text-anchor', 'middle')
+            .text('GDP')
     })
 }
