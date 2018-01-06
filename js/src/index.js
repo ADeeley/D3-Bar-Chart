@@ -4,17 +4,20 @@ window.onload = function() {
                       bottom: 50, left: 70};
 
         let data = stats.data,
+            barWidth = 3,
+            width = data.length * barWidth,
             height = 600,
-            width = data.length * 3, 
-            barWidth = 3;
+            outerWidth = width + margin.right + margin.left,
+            outerHeight = height + margin.top + margin.bottom;
+
 
         let y = d3.scaleLinear()
             .domain([0, Math.max.apply(null, (data.map((num) => num[1])))])
             .range([0, height])
 
         let chart = d3.select('.chart')
-            .attr('width', barWidth * data.length)
-            .attr('height', height);
+            .attr('width', outerWidth)
+            .attr('height', outerHeight);
 
         let div = d3.select('body').append('div')
             .attr('class', 'tooltip')
@@ -24,12 +27,12 @@ window.onload = function() {
         let bar = chart.selectAll('g')
             .data(data)
         .enter().append('g')
-            .attr('transform', (d, i) => 'translate(0' + i * barWidth + ')');
+            .attr('transform', (d, i) => 'translate(0' + (margin.left + i * barWidth) + ')');
 
         bar.append('rect')
             .attr('width', barWidth - 1)
             .attr('height', (d) => y(d[1]) + 'px')
-            .attr('y', (d) => height - y(d[1]))
+            .attr('y', (d) => margin.top + (height - y(d[1])))
             .on('mouseover', function (d) { 
                 d3.select(this).style('fill', 'red')
                 div.transition()
