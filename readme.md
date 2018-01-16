@@ -1,6 +1,6 @@
-# Project Name
+# USA GDP Chart
 
-Description of your project.
+A graph showing the chagne in quarterly GDP of the USA over time
 
 # Contributions
 
